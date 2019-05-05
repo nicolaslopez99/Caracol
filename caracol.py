@@ -5,19 +5,16 @@ Editor de Spyder
 Este es un archivo temporal.
 """
 
-def ordenar (m,lista): 
+def ordenar (m): 
     if m == [['10']]:
-        return lista.append('10')
-    else:
-        (','.join(m[0]))
-        hacer(lista,m)
-        return  lista 
+        return '10'
+    else:       
+        return  leer(m)+" "+ordenar(hacer(m))
 def voltear (m):
     return [[m[i][j] for i in range(0, len(m), 1)] for j in range(len(m[0])-1,-1 , -1)]
-def hacer (lista,m):
-    lista.append(','.join(m[0]))
+def hacer (m):
     m.remove(m[0])
-    return  ordenar(voltear(m),lista) 
-lista=[]
-ordenar([x.split()for x in open ("C:\\Users\\Antonio\\matriz.txt").readlines()],lista)
-print(','.join(lista))
+    return  voltear(m)
+def leer(m):
+    return ' '.join(m[0])
+print(ordenar([x.split()for x in open ("C:\\Users\\Antonio\\matriz.txt").readlines()]))
